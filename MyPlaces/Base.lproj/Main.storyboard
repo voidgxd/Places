@@ -152,7 +152,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b0J-bG-ynr" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b0J-bG-ynr" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
                                                     <rect key="frame" x="69" y="48" width="252" height="44"/>
                                                 </stackView>
                                             </subviews>
@@ -187,6 +187,7 @@
                         <outlet property="placeLocation" destination="ejG-0z-NsA" id="kez-kr-YIr"/>
                         <outlet property="placeName" destination="hMd-2H-SWz" id="Uch-aA-CYO"/>
                         <outlet property="placeType" destination="GAT-dr-JPl" id="AAc-fH-2Zo"/>
+                        <outlet property="ratingControl" destination="b0J-bG-ynr" id="fFN-Sh-gVg"/>
                         <outlet property="saveButton" destination="UXo-7P-k2S" id="CAK-Tr-tDa"/>
                     </connections>
                 </tableViewController>
@@ -351,6 +352,11 @@
             <point key="canvasLocation" x="1322" y="-1121"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="b0J-bG-ynr">
+            <size key="intrinsicContentSize" width="252" height="44"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="VaQ-tH-5tN"/>
     </inferredMetricsTieBreakers>
