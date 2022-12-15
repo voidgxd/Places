@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Cosmos
 
 class NewPlaceViewController: UITableViewController {
     
     var currentPlace: Place!
     var imageIsChanged = false
+    var currentRating = 0.0
 
     @IBOutlet var saveButton: UIBarButtonItem!
     @IBOutlet var placeImage: UIImageView!
@@ -19,6 +21,7 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet var placeLocation: UITextField!
     
     @IBOutlet var ratingControl: RatingControl!
+    @IBOutlet var cosmosView: CosmosView!
     @IBOutlet var placeType: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,11 @@ class NewPlaceViewController: UITableViewController {
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 
         setupEditScreen()
+        
+        cosmosView.didTouchCosmos =  { ratig in
+            self.currentRating = ratig
+            
+        }
      
     }
     
@@ -80,7 +88,7 @@ class NewPlaceViewController: UITableViewController {
         }
         let imageData = image?.pngData()
         
-        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: imageData, rating: Double(ratingControl.rating))
+        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: imageData, rating: currentRating)
         
         if currentPlace != nil {
             try! realm.write {
@@ -112,7 +120,7 @@ class NewPlaceViewController: UITableViewController {
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
-            ratingControl.rating = Int(currentPlace.rating)
+            cosmosView.rating = currentPlace.rating
         }
     }
     
