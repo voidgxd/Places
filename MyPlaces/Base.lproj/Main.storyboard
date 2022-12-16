@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,10 +32,24 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="250"/>
                                                     <color key="backgroundColor" red="0.96862745289999996" green="0.96862745289999996" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGL-J0-27L">
+                                                    <rect key="frame" x="320" y="189" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="IJw-vc-sFb"/>
+                                                        <constraint firstAttribute="height" constant="50" id="OpT-cl-ZkB"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="map"/>
+                                                    <connections>
+                                                        <segue destination="lcy-Ek-JSp" kind="presentation" identifier="showMap" id="eHT-Uw-PtO"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="W4A-N2-OLb" firstAttribute="top" secondItem="nEZ-XT-2h8" secondAttribute="top" id="17e-Rm-yBL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CGL-J0-27L" secondAttribute="trailing" id="Jwk-BW-IvR"/>
                                                 <constraint firstAttribute="bottom" secondItem="W4A-N2-OLb" secondAttribute="bottom" id="KHv-8J-lOR"/>
+                                                <constraint firstItem="CGL-J0-27L" firstAttribute="bottom" secondItem="nEZ-XT-2h8" secondAttribute="bottomMargin" id="V3m-WJ-ZDD"/>
                                                 <constraint firstItem="W4A-N2-OLb" firstAttribute="leading" secondItem="nEZ-XT-2h8" secondAttribute="leading" id="kaN-ag-4Sj"/>
                                                 <constraint firstAttribute="trailing" secondItem="W4A-N2-OLb" secondAttribute="trailing" id="kyE-un-psG"/>
                                             </constraints>
@@ -215,6 +230,52 @@
                 <exit id="uG7-FX-n5I" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1347.6923076923076" y="-65.402843601895725"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="ZmZ-t9-ObE">
+            <objects>
+                <viewController id="lcy-Ek-JSp" customClass="MapViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="llc-as-UlS">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j29-kx-fiw">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaU-I5-Gks">
+                                <rect key="frame" x="320" y="87" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Je8-o5-U9U"/>
+                                    <constraint firstAttribute="height" constant="30" id="qlw-R9-8ta"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="clear" catalog="system">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeVC" destination="lcy-Ek-JSp" eventType="touchUpInside" id="89N-4b-OuB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9ML-Y4-OVs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="j29-kx-fiw" secondAttribute="bottom" id="127-ir-Xcy"/>
+                            <constraint firstItem="kaU-I5-Gks" firstAttribute="top" secondItem="llc-as-UlS" secondAttribute="topMargin" constant="40" id="3t8-at-OTn"/>
+                            <constraint firstItem="j29-kx-fiw" firstAttribute="leading" secondItem="9ML-Y4-OVs" secondAttribute="leading" id="bTh-sp-9y5"/>
+                            <constraint firstItem="j29-kx-fiw" firstAttribute="top" secondItem="llc-as-UlS" secondAttribute="top" id="cs0-0v-d4N"/>
+                            <constraint firstItem="9ML-Y4-OVs" firstAttribute="trailing" secondItem="kaU-I5-Gks" secondAttribute="trailing" constant="40" id="uvu-l5-TDJ"/>
+                            <constraint firstItem="j29-kx-fiw" firstAttribute="trailing" secondItem="9ML-Y4-OVs" secondAttribute="trailing" id="z7u-EF-saG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="j29-kx-fiw" id="cKz-Oe-G7D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfy-bX-OGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169.2307692307691" y="-65.402843601895725"/>
         </scene>
         <!--My Places-->
         <scene sceneID="Y0h-Ut-PBV">
@@ -406,8 +467,10 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="286.66665649414062" height="275.66665649414062"/>
+        <image name="clear" catalog="system" width="128" height="114"/>
         <image name="emptyStar" width="510" height="512"/>
         <image name="filledStar" width="475" height="476"/>
+        <image name="map" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
