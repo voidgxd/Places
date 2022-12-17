@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -257,12 +258,29 @@
                                     <action selector="closeVC" destination="lcy-Ek-JSp" eventType="touchUpInside" id="89N-4b-OuB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUD-oq-Soi">
+                                <rect key="frame" x="300" y="697" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Fel-E4-zgc"/>
+                                    <constraint firstAttribute="height" constant="50" id="Kfh-qH-S7r"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="location.circle.fill" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="lcy-Ek-JSp" eventType="touchUpInside" id="XQJ-35-ny8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9ML-Y4-OVs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="j29-kx-fiw" secondAttribute="bottom" id="127-ir-Xcy"/>
                             <constraint firstItem="kaU-I5-Gks" firstAttribute="top" secondItem="llc-as-UlS" secondAttribute="topMargin" constant="40" id="3t8-at-OTn"/>
+                            <constraint firstItem="9ML-Y4-OVs" firstAttribute="trailing" secondItem="IUD-oq-Soi" secondAttribute="trailing" constant="40" id="9vK-af-3EJ"/>
+                            <constraint firstItem="9ML-Y4-OVs" firstAttribute="bottom" secondItem="IUD-oq-Soi" secondAttribute="bottom" constant="40" id="NkQ-Oo-fbI"/>
                             <constraint firstItem="j29-kx-fiw" firstAttribute="leading" secondItem="9ML-Y4-OVs" secondAttribute="leading" id="bTh-sp-9y5"/>
                             <constraint firstItem="j29-kx-fiw" firstAttribute="top" secondItem="llc-as-UlS" secondAttribute="top" id="cs0-0v-d4N"/>
                             <constraint firstItem="9ML-Y4-OVs" firstAttribute="trailing" secondItem="kaU-I5-Gks" secondAttribute="trailing" constant="40" id="uvu-l5-TDJ"/>
@@ -470,6 +488,7 @@
         <image name="clear" catalog="system" width="128" height="114"/>
         <image name="emptyStar" width="510" height="512"/>
         <image name="filledStar" width="475" height="476"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="123"/>
         <image name="map" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
