@@ -6,5 +6,5 @@
 
 ## Скриншоты
 
-![Скриншот 1](screenshots/screenshot1.png)
-![Скриншот 2](screenshots/screenshot2.png)
+![Скриншот 1](screenshots/1.png)
+![Скриншот 2](screenshots/2.png)
